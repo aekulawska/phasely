@@ -16,12 +16,12 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
     
     body {
-        background-color: #FFF5E6;
+        background-color: #e7dbc7;
         font-family: 'Quicksand', sans-serif;
     }
     
     .stApp {
-        background: linear-gradient(135deg, #FFF5E6 0%, #FFEBD2 100%);
+        background: #e7dbc7;
     }
     
     .stTextInput > div > div > input {
@@ -72,7 +72,7 @@ st.markdown("""
     }
     
     .nutrition-card {
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.9);
         border-radius: 15px;
         padding: 30px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -84,8 +84,14 @@ st.markdown("""
 
 # Main Application
 def main():
-    st.title("🌙 Phasely")
-    st.subheader("Nourish Your Body, Sync with Your Cycle")
+    # Replace the title with centered logo
+    st.markdown("""
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <img src="https://raw.githubusercontent.com/aekulawska/phasely/refs/heads/main/Screenshot%202025-03-24%20at%2020.59.35.png" 
+                 alt="Phasely Logo" 
+                 style="width: 250px; margin-bottom: 2rem;">
+        </div>
+    """, unsafe_allow_html=True)
 
     # Cycle Day Input
     col1, col2 = st.columns([2, 1])
@@ -123,7 +129,7 @@ def main():
     URL = "https://emea.snaplogic.com/api/1/rest/slsched/feed/ConnectFasterInc/Aleksandra%20Kulawska/shared/nutrition_api"
     BEARER_TOKEN = "Uv83gcXtG0SOxmBXJ66NTTXHrKykYEeC"
 
-    if st.button("🌸 Get Personalized Guidance"):
+    if st.button("🌙 Get Personalized Guidance"):
         with st.spinner("Crafting your personalized wisdom..."):
             # Prepare API Request
             data = {
@@ -190,7 +196,7 @@ def main():
                             # Display Nutrition Section
                             nutrition_html = f"""
                                 <div class="nutrition-card">
-                                    <h2 style="color: #9B6B8D; font-family: 'Quicksand', sans-serif; text-align: center;">
+                                    <h2 style="color: #8b654c; font-family: 'Quicksand', sans-serif; text-align: center;">
                                         ✨ Nourish Your Body ✨
                                     </h2>
                                     <h3 style="color: #6D4C3D; font-family: 'Quicksand', sans-serif;">
@@ -204,7 +210,7 @@ def main():
                             # Display Lifestyle Section
                             lifestyle_html = f"""
                                 <div class="nutrition-card">
-                                    <h2 style="color: #9B6B8D; font-family: 'Quicksand', sans-serif; text-align: center;">
+                                    <h2 style="color: #8b654c; font-family: 'Quicksand', sans-serif; text-align: center;">
                                         ✨ Nurture Your Spirit ✨
                                     </h2>
                                     <h3 style="color: #6D4C3D; font-family: 'Quicksand', sans-serif;">
