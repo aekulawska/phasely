@@ -168,15 +168,25 @@ def main():
                                     continue
                                 elif section.strip():
                                     if current_section == 'nutrition':
-                                        # Format bullet points properly
-                                        if section.startswith('- '):
-                                            section = "• " + section[2:]
                                         nutrition_content.append(section)
                                     elif current_section == 'lifestyle':
-                                        if section.startswith('- '):
-                                            section = "• " + section[2:]
                                         lifestyle_content.append(section)
                             
+                            # Format text helper function
+                            def format_section_text(text):
+                                # Split by newlines to handle each line
+                                lines = text.split('\n')
+                                formatted_lines = []
+                                for line in lines:
+                                    if line.startswith('- '):
+                                        # Format bullet points with proper spacing
+                                        formatted_line = f"• {line[2:]}"
+                                        formatted_lines.append(f'<p style="color: #6D4C3D; margin-bottom: 10px; margin-left: 20px;">{formatted_line}</p>')
+                                    else:
+                                        # Regular text
+                                        formatted_lines.append(f'<p style="color: #6D4C3D; margin-bottom: 15px;">{line}</p>')
+                                return '\n'.join(formatted_lines)
+
                             # Display Nutrition Section
                             nutrition_html = f"""
                                 <div class="nutrition-card">
@@ -186,7 +196,7 @@ def main():
                                     <h3 style="color: #6D4C3D; font-family: 'Quicksand', sans-serif;">
                                         🌸 Nutrition Guidance
                                     </h3>
-                                    {''.join([f"<p style='color: #6D4C3D; margin-bottom: 15px;'>{section}</p>" for section in nutrition_content])}
+                                    {''.join([format_section_text(section) for section in nutrition_content])}
                                 </div>
                             """
                             st.markdown(nutrition_html, unsafe_allow_html=True)
@@ -200,7 +210,7 @@ def main():
                                     <h3 style="color: #6D4C3D; font-family: 'Quicksand', sans-serif;">
                                         🌿 Lifestyle Wisdom
                                     </h3>
-                                    {''.join([f"<p style='color: #6D4C3D; margin-bottom: 15px;'>{section}</p>" for section in lifestyle_content])}
+                                    {''.join([format_section_text(section) for section in lifestyle_content])}
                                 </div>
                             """
                             st.markdown(lifestyle_html, unsafe_allow_html=True)
