@@ -104,7 +104,7 @@ def main():
         )
     
     with col2:
-        st.markdown("### 📆 Cycle Insights")
+        st.markdown("### Cycle Insights")
         if cycle_day <= 6:
             st.markdown("**Menstrual Phase**\nRest & Replenish")
         elif cycle_day <= 11:
@@ -129,7 +129,7 @@ def main():
     URL = "https://emea.snaplogic.com/api/1/rest/slsched/feed/ConnectFasterInc/Aleksandra%20Kulawska/shared/nutrition_api"
     BEARER_TOKEN = "Uv83gcXtG0SOxmBXJ66NTTXHrKykYEeC"
 
-    if st.button("🌙 Get Personalized Guidance"):
+    if st.button("Get Personalized Guidance"):
         with st.spinner("Crafting your personalized wisdom..."):
             # Prepare API Request
             data = {
@@ -199,9 +199,6 @@ def main():
                                     <h2 style="color: #8b654c; font-family: 'Quicksand', sans-serif; text-align: center;">
                                         ✨ Nourish Your Body ✨
                                     </h2>
-                                    <h3 style="color: #6D4C3D; font-family: 'Quicksand', sans-serif;">
-                                        🌸 Nutrition Guidance
-                                    </h3>
                                     {''.join([format_section_text(section) for section in nutrition_content])}
                                 </div>
                             """
@@ -213,9 +210,6 @@ def main():
                                     <h2 style="color: #8b654c; font-family: 'Quicksand', sans-serif; text-align: center;">
                                         ✨ Nurture Your Spirit ✨
                                     </h2>
-                                    <h3 style="color: #6D4C3D; font-family: 'Quicksand', sans-serif;">
-                                        🌿 Lifestyle Wisdom
-                                    </h3>
                                     {''.join([format_section_text(section) for section in lifestyle_content])}
                                 </div>
                             """
